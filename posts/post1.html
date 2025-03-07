@@ -40,50 +40,23 @@
 
         <ul>
           <li><b>UI Event:</b>In our UI which is our front end. User triggers soe events. Such as hovering, clicking on buttons, scrolling etc. But they are non-Functional if they don't have a place. if the logic is not written in the backend. For those backend functionality to be called, we need API.  </li>
-          <li><b>API Call via axios</b>Axios is a popular JavaScript library used for making HTTP requests in web applications. It is built on top of XMLHttpRequest and supports Promises, making asynchronous data fetching easier.</li>
-          <li><b>Backend Processing</b>It allows you to bring your ideas to life</li>
-          <li><b>Response Handling</b>The community is supportive and constantly evolving</li>
-          <li><b>States Update</b>The community is supportive and constantly evolving</li>
+
+          <li><b>API Call via axios:</b>Axios is a popular JavaScript library used for making HTTP requests in web applications. It is built on top of XMLHttpRequest and supports Promises, making asynchronous data fetching easier. <br>Uses .get(), .post(), .put(), .delete(), etc., for straightforward HTTP requests.</li>
+          
+          <li><b>Backend Processing:</b>The backend of a web application is the server-side part responsible for processing requests, handling business logic, managing databases, and ensuring security.</li>
+
+          <li><h3>How API Interacts with the Database:</h3><b>Clients request:</b><p>The frontend sends an HTTP request (GET, POST, PUT, DELETE) using Axios or Fetch.</p></li>
+
+          <li><b>Express.js Route Handling:</b><p>The request is received by an Express.js route.</p></li>
+
+          <li><b>Database Query Execution:</b><p>The backend queries a database (MongoDB, PostgreSQL, etc.) using an ORM like Mongoose or Sequelize.</p></li>
+
+          <li><b>API Response:</b><p>The database processes the query and returns data to the API.</p></li>
+
+          <li><b>State Update:</b><p>The UI updates based on the received data, either through Redux or component state.</p></li>
         </ul>
         
-        <h2>Getting Started: The Basics</h2>
-        <p>If you're just starting out, focus on these three core technologies:</p>
-        
-        <h3>HTML (HyperText Markup Language)</h3>
-        <p>HTML is the backbone of any website. It provides the structure and content. Here's a simple example:</p>
-        <pre><code>&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-  &lt;head&gt;
-    &lt;title&gt;My First Webpage&lt;/title&gt;
-  &lt;/head&gt;
-  &lt;body&gt;
-    &lt;h1&gt;Hello, World!&lt;/h1&gt;
-    &lt;p&gt;This is my first webpage.&lt;/p&gt;
-  &lt;/body&gt;
-&lt;/html&gt;</code></pre>
-        
-        <h3>CSS (Cascading Style Sheets)</h3>
-        <p>CSS is what makes websites look good. It handles all the styling and layout. Here's a basic example:</p>
-        <pre><code>body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 20px;
-  background-color: #f5f5f5;
-}
-
-h1 {
-  color: #333;
-  border-bottom: 2px solid #ddd;
-  padding-bottom: 10px;
-}</code></pre>
-        
-        <h3>JavaScript</h3>
-        <p>JavaScript makes websites interactive. It's what allows users to click buttons, fill out forms, and see dynamic content. Here's a simple example:</p>
-        <pre><code>// When a button is clicked, show an alert
-document.getElementById('myButton').addEventListener('click', function() {
-  alert('Button was clicked!');
-});</code></pre>
-        
+    
         <h2>Learning Resources</h2>
         <p>There are many great resources for learning web development:</p>
         <ul>
