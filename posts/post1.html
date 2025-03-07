@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Full Stack development</title>
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="post-styles.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>My Personal Blog</h1>
+      <nav>
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <article class="blog-post">
+      <h1>Full Stack Web Development:</h1>
+      <p class="post-meta">Posted on March 5, 2025</p>
+      
+      <img src="./assests/FullStack.png" alt="Web development illustration" class="featured-image">
+      
+      <div class="post-content">
+        
+            <h3>Introduction</h3>
+                <p>
+                    Full Stack Web Development involves building both the frontend and backend of an application. The frontend handles user interactions, while the backend manages business logic, databases, and API calls. A key challenge in modern web applications is managing state efficiently. This is where Redux, a predictable state management tool, becomes a valuable asset. However, not all applications require Redux; some can efficiently function without it. This article explores both approaches.
+                </p>
+            
+        
+        <h2>Full Stack Development Without Redux</h2>
+
+        <ul>
+          <li><b>UI Event:</b>In our UI which is our front end. User triggers soe events. Such as hovering, clicking on buttons, scrolling etc. But they are non-Functional if they don't have a place. if the logic is not written in the backend. For those backend functionality to be called, we need API.  </li>
+          <li><b>API Call via axios</b>Axios is a popular JavaScript library used for making HTTP requests in web applications. It is built on top of XMLHttpRequest and supports Promises, making asynchronous data fetching easier.</li>
+          <li><b>Backend Processing</b>It allows you to bring your ideas to life</li>
+          <li><b>Response Handling</b>The community is supportive and constantly evolving</li>
+          <li><b>States Update</b>The community is supportive and constantly evolving</li>
+        </ul>
+        
+        <h2>Getting Started: The Basics</h2>
+        <p>If you're just starting out, focus on these three core technologies:</p>
+        
+        <h3>HTML (HyperText Markup Language)</h3>
+        <p>HTML is the backbone of any website. It provides the structure and content. Here's a simple example:</p>
+        <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;My First Webpage&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Hello, World!&lt;/h1&gt;
+    &lt;p&gt;This is my first webpage.&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+        
+        <h3>CSS (Cascading Style Sheets)</h3>
+        <p>CSS is what makes websites look good. It handles all the styling and layout. Here's a basic example:</p>
+        <pre><code>body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+  background-color: #f5f5f5;
+}
+
+h1 {
+  color: #333;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 10px;
+}</code></pre>
+        
+        <h3>JavaScript</h3>
+        <p>JavaScript makes websites interactive. It's what allows users to click buttons, fill out forms, and see dynamic content. Here's a simple example:</p>
+        <pre><code>// When a button is clicked, show an alert
+document.getElementById('myButton').addEventListener('click', function() {
+  alert('Button was clicked!');
+});</code></pre>
+        
+        <h2>Learning Resources</h2>
+        <p>There are many great resources for learning web development:</p>
+        <ul>
+          <li>Online platforms like freeCodeCamp, Codecademy, and MDN Web Docs</li>
+          <li>YouTube tutorials</li>
+          <li>Books like "HTML and CSS: Design and Build Websites" by Jon Duckett</li>
+          <li>Local coding bootcamps or community college courses</li>
+        </ul>
+        
+        <h2>Building Your First Project</h2>
+        <p>The best way to learn is by doing. Start with a simple project like a personal portfolio or a blog (like this one!). Don't worry about making it perfect—focus on applying what you've learned and solving problems as they arise.</p>
+        
+        <h2>Conclusion</h2>
+        <p>Web development is a journey, not a destination. The field is constantly evolving, so continuous learning is part of the process. Embrace the challenges, celebrate your victories, and don't be afraid to ask for help when you need it.</p>
+        
+        <p>Happy coding!</p>
+      </div>
+      
+      <div class="post-navigation">
+        <a href="../index.html" class="back-to-home">← Back to Home</a>
+        <a href="post2.html" class="next-post">Next Post: CSS Tricks Every Developer Should Know →</a>
+      </div>
+    </article>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 My Personal Blog. All rights reserved.</p>
+      <div class="social-links">
+        <a href="#" aria-label="Twitter">Twitter</a>
+        <a href="#" aria-label="GitHub">GitHub</a>
+        <a href="#" aria-label="LinkedIn">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
+
