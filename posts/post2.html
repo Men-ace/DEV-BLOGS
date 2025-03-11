@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Version Control System</title>
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="post-styles.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>My Personal Blog</h1>
+      <nav>
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <article class="blog-post">
+      <h1>Version Control System:</h1>
+      <p class="post-meta">Posted on March 5, 2025</p>
+      
+      <img src="./assests/FullStack.png" alt="Web development illustration" class="featured-image">
+      
+      <div class="post-content">
+        
+            <h3>Introduction</h3>
+                <h5>What is Version Control? (With a Real-World Example)</h5>
+                <p>
+                    Consider that you and your buddies are writing a book. You each write a distinct chapter, but occasionally errors occur and you have to go back to a previous draft. You risk losing crucial content or producing contradictory versions if you don't have a mechanism to monitor changes. Version Control Systems (VCS) are useful in this situation.
+                    A VCS allows developers to track changes, collaborate, and revert to previous versions if something goes wrong. It acts like a "time machine" for code, ensuring no progress is lost. Also on top of that imagine having a copy of that book each time your friend makes a change. 
+                    
+                </p>
+            
+        
+        <h2>Full Stack Development Without Redux</h2>
+        <img src="./assests/fullstack app.png" alt="Web development illustration" class="featured-image">
+
+        <ul>
+          <li><b>UI Event:</b>In our UI which is our front end. User triggers soe events. Such as hovering, clicking on buttons, scrolling etc. But they are non-Functional if they don't have a place. if the logic is not written in the backend. For those backend functionality to be called, we need API.  </li>
+
+          <li><b>API Call via axios:</b>Axios is a popular JavaScript library used for making HTTP requests in web applications. It is built on top of XMLHttpRequest and supports Promises, making asynchronous data fetching easier. <br>Uses .get(), .post(), .put(), .delete(), etc., for straightforward HTTP requests.</li>
+
+          <li><b>Backend Processing:</b>The backend of a web application is the server-side part responsible for processing requests, handling business logic, managing databases, and ensuring security.</li>
+
+          <li><h3>How API Interacts with the Database:</h3><b>Clients request:</b><p>The frontend sends an HTTP request (GET, POST, PUT, DELETE) using Axios or Fetch.</p></li>
+
+          <li><b>Express.js Route Handling:</b><p>The request is received by an Express.js route.</p></li>
+
+          <li><b>Database Query Execution:</b><p>The backend queries a database (MongoDB, PostgreSQL, etc.) using an ORM like Mongoose or Sequelize.</p></li>
+
+          <li><b>API Response:</b><p>The database processes the query and returns data to the API.</p></li>
+
+          <li><b>State Update:</b><p>The UI updates based on the received data, either through Redux or component state.</p></li>
+        </ul>
+
+
+        <h1>Full Stack Development With Redux</h1>
+        <img src="./assests/redux.webp" alt="Web development illustration" class="featured-image">
+
+        <h2>How It Works</h2>
+        <p>Redux provides a global state management solution that centralizes state updates and ensures consistency across the application. The workflow involves:</p>
+    
+        <ol>
+            <li><strong>UI Event:</strong> A user interaction triggers an action.</li>
+            <li><strong>Dispatching Action:</strong> The action is dispatched to Redux.</li>
+            <li><strong>Thunk Middleware (Optional):</strong> If asynchronous actions are involved (e.g., API calls), Redux Thunk processes them.</li>
+            <li><strong>API Request & Response:</strong> The backend processes the request and returns a response.</li>
+            <li><strong>Redux Store Update:</strong> The response is stored in Redux, and relevant components re-render based on the new state.</li>
+            <li><strong>UI Updates:</strong> The updated state reflects in the UI without direct component state manipulation.</li>
+        </ol>
+    
+        <h2>Implementing a Full Stack App with Redux</h2>
+    
+        <h3>1. Setting Up Redux in the Frontend</h3>
+        <code>
+            npm install redux react-redux redux-thunk
+        </code>
+
+        <h3>2. Creating a Redux Store</h3>
+        <code>
+            import { createStore, applyMiddleware } from 'redux';<br>
+            import thunk from 'redux-thunk';<br>
+            import rootReducer from './reducers';<br><br>
+    
+            const store = createStore(rootReducer, applyMiddleware(thunk));<br>
+            export default store;
+        </code>
+    
+        <h3>3. Defining Redux Actions</h3>
+        <code>
+            export const fetchUsers = () => async (dispatch) => {<br>
+                try {<br>
+                    const response = await fetch('/api/users');<br>
+                    const data = await response.json();<br>
+                    dispatch({ type: 'FETCH_USERS_SUCCESS', payload: data });<br>
+                } catch (error) {<br>
+                    dispatch({ type: 'FETCH_USERS_ERROR', payload: error });<br>
+                }<br>
+            };
+        </code>
+
+        <h3>4. Handling State in a Reducer</h3>
+        <code>
+            const initialState = { users: [], error: null };<br>
+            export const userReducer = (state = initialState, action) => {<br>
+                switch (action.type) {<br>
+                    case 'FETCH_USERS_SUCCESS':<br>
+                        return { ...state, users: action.payload };<br>
+                    case 'FETCH_USERS_ERROR':<br>
+                        return { ...state, error: action.payload };<br>
+                    default:<br>
+                        return state;<br>
+                }<br>
+            };
+        </code>
+
+        <h3>5. Connecting Redux to React Components</h3>
+        <code>
+            import { useSelector, useDispatch } from 'react-redux';<br>
+            import { fetchUsers } from '../actions/userActions';<br><br>
+    
+            const UserList = () => {<br>
+                const dispatch = useDispatch();<br>
+                const users = useSelector((state) => state.users);<br><br>
+    
+                useEffect(() => {<br>
+                    dispatch(fetchUsers());<br>
+                }, [dispatch]);<br><br>
+    
+                return (<br>
+                    &lt;div&gt;<br>
+                        {users.map(user => &lt;p key={user.id}&gt;{user.name}&lt;/p&gt;)}<br>
+                    &lt;/div&gt;<br>
+                );<br>
+            };
+        </code>
+        
+    
+        <h2>Learning Resources</h2>
+        <p>There are many great resources for learning web development:</p>
+        <ul>
+          <li>Online platforms like freeCodeCamp, Codecademy, and MDN Web Docs</li>
+          <li>YouTube tutorials</li>
+          <li>Books like "HTML and CSS: Design and Build Websites" by Jon Duckett</li>
+          <li>Local coding bootcamps or community college courses</li>
+        </ul>
+        
+        <h2>Building Your First Project</h2>
+        <p>The best way to learn is by doing. Start with a simple project like a personal portfolio or a blog (like this one!). Don't worry about making it perfect—focus on applying what you've learned and solving problems as they arise.</p>
+        
+        <h2>Conclusion</h2>
+        <p>Web development is a journey, not a destination. The field is constantly evolving, so continuous learning is part of the process. Embrace the challenges, celebrate your victories, and don't be afraid to ask for help when you need it.</p>
+        
+        <p>Happy coding!</p>
+      </div>
+      
+      <div class="post-navigation">
+        <a href="../index.html" class="back-to-home">← Back to Home</a>
+        <a href="post2.html" class="next-post">Next Post: CSS Tricks Every Developer Should Know →</a>
+      </div>
+    </article>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 My Personal Blog. All rights reserved.</p>
+      <div class="social-links">
+        <a href="#" aria-label="Twitter">Twitter</a>
+        <a href="#" aria-label="GitHub">GitHub</a>
+        <a href="#" aria-label="LinkedIn">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
+
